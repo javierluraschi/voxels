@@ -1,4 +1,4 @@
-Package: pixels
+Package: voxels
 Type: Package
 Title: Realtime and Interactive Voxels
 Version: 0.1.0
@@ -10,8 +10,8 @@ Description: Provides tools to show and draw image voxels using 'HTML' widgets
   and 'Shiny' applications.  It can be used to visualize spatial datasets or
   'Minecrafts' like worlds.
 License: MIT + file LICENSE
-URL: https://github.com/javierluraschi/pixels
-BugReports: https://github.com/javierluraschi/pixels/issues
+URL: https://github.com/javierluraschi/voxels
+BugReports: https://github.com/javierluraschi/voxels/issues
 Encoding: UTF-8
 LazyData: true
 Depends:

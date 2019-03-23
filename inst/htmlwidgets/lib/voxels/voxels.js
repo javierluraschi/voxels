@@ -104,6 +104,7 @@ function Matrix() {
     var last = created;
     for (var materialKey in materials) {
       var material = materials[materialKey];
+      
       if (material.created <= created) continue;
       
       var key = material.place.join("|");
@@ -144,7 +145,7 @@ function Matrix() {
 
   this.setMaterial = function(position, place, color, opacity, success) {
     var partition = getPartition(position);
-
+    
     var newMaterial = {
       created: PerfClock.now(),
       place: place,
@@ -152,6 +153,10 @@ function Matrix() {
       opacity: opacity
     };
 
+    while (partition.materials[newMaterial.created]) {
+      newMaterial.created = PerfClock.now();
+    }
+    
     partition.materials[newMaterial.created] = newMaterial;
     partition.modified = newMaterial.created;
     

@@ -1,6 +1,6 @@
 function RemoteService(object) {
   this.request = function(action, args, success, failure) {
-    var serverUrl = location.hostname === "" ? "http://localhost:3000" : "https://api.breakerofthechains.com";
+    var serverUrl = "http://localhost:3000";
     var url = serverUrl + "/" + object + "/" + action;
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -67,10 +67,12 @@ var RemoteSessions = function() {
   }
 }
 
-var ProxyMatrix = function() {
+var ProxyMatrix = function(server) {
   var instance = this;
 
   var sessions = new RemoteSessions();
+  if (!server) sessions = null;
+  
   var remote = new RemoteMatrix();
   var local = new Matrix();
   var position = [0, 0, 0];
@@ -158,11 +160,13 @@ var ProxyMatrix = function() {
   }
 
   var init = function() {
-    sessions.refresh(position, function(session) {
-      setInterval(function() {
-        instance.syncMaterials(position);
-      }, session.interval);
-    });
+    if (sessions) {
+      sessions.refresh(position, function(session) {
+        setInterval(function() {
+          instance.syncMaterials(position);
+        }, session.interval);
+      });
+    }
   };
 
   var positionToGrid = function(raw) {

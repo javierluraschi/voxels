@@ -124,7 +124,7 @@ HTMLWidgets.widget({
         head = new THREE.Object3D();
         head.position.y = 650;
         head.position.x = 0;
-        head.position.z = -350;
+        head.position.z = 350;
         scene.add(head);
         
         var actions = new Actions(scene, changeWorld);
@@ -182,7 +182,7 @@ HTMLWidgets.widget({
           if (feature.enabled) new feature.constructor(renderer, scene, camera, head, env, actions);
         }
 
-        setInterval(function() {
+        setTimeout(function() {
           var last = instance.getLastMaterial();
           proxy.getMaterials(last, function(materials, newlast) {
             for (key in materials) {
@@ -234,8 +234,18 @@ HTMLWidgets.widget({
 
     return {
       renderValue: function(x) {
-        proxy = new ProxyMatrix();
+        proxy = new ProxyMatrix(false);
         grid = new Grid3D(proxy, width, height);
+        
+        if (x.data) {
+          for (row = 0; row < x.data.length; row++) {
+            for (col = 0; col < x.data[row].length; col++) {
+              if (x.data[row][col] > 0) {
+                proxy.setMaterial([row, col, 0], "0000FF", 1.0);
+              }
+            }
+          }
+        }
       },
 
       resize: function(width, height) {

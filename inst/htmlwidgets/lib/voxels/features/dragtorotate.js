@@ -26,7 +26,7 @@ function DragToRotate(renderer, scene, camera, head, env, actions) {
     pitch.position.z = -0;
     head.add(pitch);
 
-    pitch.rotation.x = - Math.PI / 4;
+    pitch.rotation.x = - Math.PI / 8;
 
     scene.remove(camera);
     pitch.add(camera);

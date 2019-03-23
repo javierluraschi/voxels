@@ -5,10 +5,11 @@
 #' @import htmlwidgets
 #'
 #' @export
-voxels <- function(width = NULL, height = NULL, elementId = NULL) {
+voxels <- function(data = NULL, width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
   x = list(
+    data = data
   )
 
   # create widget
