@@ -1,0 +1,27 @@
+---
+title: "Realtime and Interactive Voxels"
+output:
+  github_document:
+    fig_width: 9
+    fig_height: 5
+---
+
+**Early Stage** voxel rendering engine for R. Currently you can manualy create and nagivate through voxels worlds using R. Soon to come, suppoort to create and retrieve voxels from R.
+
+## Installation
+
+Install the package as follows:
+
+```{r eval=FALSE}
+isntall.packages("remotes")
+remotes::install_github("javierluraschi/voxels")
+```
+
+## Getting Started
+
+```{r eval=FALSE}
+library(voxels)
+voxels()
+```
+
+![](tools/README/voxels-demo.gif)

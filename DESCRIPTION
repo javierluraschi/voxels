@@ -1,0 +1,25 @@
+Package: pixels
+Type: Package
+Title: Realtime and Interactive Voxels
+Version: 0.1.0
+Authors@R: c(
+    person("Javier", "Luraschi", email = "javier@rstudio.com", role = c("aut", "cre"))
+    )
+Maintainer: Javier Luraschi <javier@rstudio.com>
+Description: Provides tools to show and draw image voxels using 'HTML' widgets 
+  and 'Shiny' applications.  It can be used to visualize spatial datasets or
+  'Minecrafts' like worlds.
+License: MIT + file LICENSE
+URL: https://github.com/javierluraschi/pixels
+BugReports: https://github.com/javierluraschi/pixels/issues
+Encoding: UTF-8
+LazyData: true
+Depends:
+  R (>= 3.1.2)
+Imports:
+  htmlwidgets,
+  shiny,
+  miniUI
+Suggests:
+  testthat
+RoxygenNote: 6.0.1

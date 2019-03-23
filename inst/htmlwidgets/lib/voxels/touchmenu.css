@@ -1,0 +1,38 @@
+@keyframes touch-menu-entry-animation {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 0.4;
+  }
+}
+
+.touch-menu-root {
+}
+
+.touch-menu-entry {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #BBBBFF;
+  position: absolute;
+  --animation-name: touch-menu-entry-animation;
+  -animation-duration: 1s;
+  user-select: none;
+  color: #FFF;
+  line-height: 50px;
+  text-align: center;
+  cursor: default;
+  font-size: 20px;
+  opacity: 0.4;
+}
+
+.touch-menu-entry.touch-menu-entry-active {
+  display: block;
+  opacity: 1.0;
+
+  -border: dashed 4px #FFFFF;
+  -margin-left: -4px;
+  -margin-top: -4px;
+  -background: #d1d0fd;
+}

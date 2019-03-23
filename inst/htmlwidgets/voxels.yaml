@@ -1,0 +1,138 @@
+dependencies:
+  # Third Party Dependencies
+  - name: filesaver.js
+    version: 1.0.0
+    src: htmlwidgets/lib
+    script:
+      - filesaver.js
+  - name: stats.js
+    version: 1.0.0
+    src: htmlwidgets/lib
+    script:
+      - stats.js
+  - name: three.js
+    version: 1.0.0
+    src: htmlwidgets/lib
+    script:
+      - three.js
+  - name: stlexporter.js
+    version: 1.0.0
+    src: htmlwidgets/lib
+    script:
+      - stlexporter.js
+
+  # Core Voxel Engine
+  - name: touchmenu.css
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels
+    stylesheet:
+      - touchmenu.css
+  - name: touchmenu.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels
+    script:
+      - touchmenu.js
+  - name: touchtracker.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels
+    script:
+      - touchtracker.js
+  - name: voxelmesher.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels
+    script:
+      - voxelmesher.js
+  - name: voxelstore.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels
+    script:
+      - voxelstore.js
+      
+  # Feature Flags
+  - name: basiclights.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels/features
+    script:
+      - basiclights.js
+  - name: clickaddsblock.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels/features
+    script:
+      - clickaddsblock.js  
+  - name: clickaddscube.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels/features
+    script:
+      - clickaddscube.js
+  - name: clickdetection.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels/features
+    script:
+      - clickdetection.js  
+  - name: commandsmenu.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels/features
+    script:
+      - commandsmenu.js
+  - name: downloadstl.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels/features
+    script:
+      - downloadstl.js  
+  - name: dragtomove.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels/features
+    script:
+      - dragtomove.js
+  - name: dragtorotate.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels/features
+    script:
+      - dragtorotate.js  
+  - name: exportstl.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels/features
+    script:
+      - exportstl.js
+  - name: gridfloor.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels/features
+    script:
+      - gridfloor.js  
+  - name: heightcontrols.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels/features
+    script:
+      - heightcontrols.js  
+  - name: longclickdeletes.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels/features
+    script:
+      - longclickdeletes.js
+  - name: movecontrols.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels/features
+    script:
+      - movecontrols.js  
+  - name: skinrenderer.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels/features
+    script:
+      - skinrenderer.js  
+  - name: worldsmenu.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels/features
+    script:
+      - worldsmenu.js
+      
+  # Core Voxel Proxy
+  - name: voxels.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels
+    script:
+      - voxels.js
+  - name: proxymatrix.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels
+    script:
+      - proxymatrix.js
