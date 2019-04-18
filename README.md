@@ -10,7 +10,7 @@ suppoort to create and retrieve voxels from R.
 Install the package as follows:
 
 ``` r
-isntall.packages("remotes")
+install.packages("remotes")
 remotes::install_github("javierluraschi/voxels")
 ```
 
