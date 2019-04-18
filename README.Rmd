@@ -13,7 +13,7 @@ output:
 Install the package as follows:
 
 ```{r eval=FALSE}
-isntall.packages("remotes")
+install.packages("remotes")
 remotes::install_github("javierluraschi/voxels")
 ```
 
