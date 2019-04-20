@@ -9,48 +9,11 @@ HTMLWidgets.widget({
       var instance = this;
       var totalVoxels = 0;
 
-      this.restoreBlockOriginal = function(point, color) {
-        var objectName = point[0] + "|" + point[1] + "|" + point[2];
-        var object = scene.getObjectByName(objectName);
-
-        if (object) {
-          if (object.userData.color == color) return;
-          scene.remove(object);
-          totalVoxels--;
-        }
-        
-        if (color) {
-          var particle = new THREE.Mesh(
-            new THREE.BoxGeometry(100, 100, 100),
-            new THREE.MeshLambertMaterial({ color: color })
-          );
-
-          particle.name = objectName;
-
-          particle.userData = {
-            voxel: true,
-            color: color
-          };
-
-          particle.position.x = point[0] * 100 + 50;
-          particle.position.y = point[1] * 100 + 50;
-          particle.position.z = point[2] * 100 + 50;
-
-          totalVoxels++;
-          scene.add(particle);
-        }
-      };
-
       this.restoreBlock = function(point, color) {
-        //this.restoreBlockOriginal(point, color);
-
-        // voxelMesher.set(point, color);
-        // voxelMesher.mesh();
-
         voxelMesher.meshIncremental(point, color);
 
         scene.changed = true;
-      }
+      };
 
       this.addBlock = function(point, color) {
         instance.restoreBlock(point, color);
@@ -124,7 +87,7 @@ HTMLWidgets.widget({
         head = new THREE.Object3D();
         head.position.y = 650;
         head.position.x = 0;
-        head.position.z = 350;
+        head.position.z = 1350;
         scene.add(head);
         
         var actions = new Actions(scene, changeWorld);
@@ -177,7 +140,7 @@ HTMLWidgets.widget({
           menu: []
         };
 
-        for (idx in features) {
+        for (var idx in features) {
           var feature = features[idx];
           if (feature.enabled) new feature.constructor(renderer, scene, camera, head, env, actions);
         }
@@ -185,7 +148,7 @@ HTMLWidgets.widget({
         setTimeout(function() {
           var last = instance.getLastMaterial();
           proxy.getMaterials(last, function(materials, newlast) {
-            for (key in materials) {
+            for (var key in materials) {
               var material = materials[key];
               actions.restoreBlock(material.place, material.color);
             }
@@ -195,7 +158,7 @@ HTMLWidgets.widget({
 
         setInterval(function() {
           console.log(renderer.info);
-        }, 10000)
+        }, 10000);
 
         stats = new Stats();
         stats.showPanel(0);
@@ -208,7 +171,7 @@ HTMLWidgets.widget({
 
         scene.changed = true;
         renderer.setSize(width, height);
-      }
+      };
 
       function animate() {
         if (scene.changed) {
@@ -218,7 +181,6 @@ HTMLWidgets.widget({
 
           scene.changed = false;
         }
-        
         
         requestAnimationFrame(animate);
       }
@@ -240,8 +202,10 @@ HTMLWidgets.widget({
         if (x.data) {
           for (row = 0; row < x.data.length; row++) {
             for (col = 0; col < x.data[row].length; col++) {
-              if (x.data[row][col] > 0) {
-                proxy.setMaterial([row, col, 0], "0000FF", 1.0);
+              for (depth = 0; depth < x.data[row][col].length; depth++) {
+                if (x.data[row][col][depth] > 0) {
+                  proxy.setMaterial([row + x.offset[0], col + x.offset[1], depth + x.offset[2]], "0000FF", 1.0);
+                }
               }
             }
           }

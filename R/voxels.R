@@ -1,15 +1,24 @@
-#' <Add Title>
+#' Render Voxels
 #'
-#' <Add Description>
+#' Renders a 3D matrix of voxels
 #'
+#' @param data A 3D matrix of rows, cols and depth that describes each voxel.
+#' @param width The width of the 'htmlwidget'.
+#' @param height The height of the 'htmlwidget'.
+#' @param offset An array with three integers describing the offset.
+#' 
 #' @import htmlwidgets
-#'
 #' @export
-voxels <- function(data = NULL, width = NULL, height = NULL, elementId = NULL) {
+voxels <- function(data = NULL,
+                   width = NULL,
+                   height = NULL,
+                   elementId = NULL,
+                   offset = c(0, 0, 0)) {
 
   # forward options using x
   x = list(
-    data = data
+    data = data,
+    offset = offset
   )
 
   # create widget
