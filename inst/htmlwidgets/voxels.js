@@ -1,10 +1,11 @@
 HTMLWidgets.widget({
   name: 'voxels',
   type: 'output',
-  factory: function(el, width, height) {
+  factory: function(el, width, height, wireframe) {
 
-    var Actions = function(scene, world) {
+    var Actions = function(scene, world, wireframe) {
       var voxelMesher = new VoxelMesher(scene);
+      voxelMesher.wireframe = wireframe;
 
       var instance = this;
       var totalVoxels = 0;
@@ -39,11 +40,16 @@ HTMLWidgets.widget({
       };
 
       setInterval(function() {
+        var totalVoxels = 0;
+        scene.traverse(function( child ) {
+          if(child instanceof THREE.Mesh)
+            totalVoxels++;
+        });
         console.log("Total voxels: " + totalVoxels);
-      }, 5000)
+      }, 5000);
     };
 
-    var Grid3D = function (proxy, width, height) {
+    var Grid3D = function (proxy, width, height, wireframe) {
       var instance = this;
       var scene, renderer, camera, light;
       var floor;
@@ -90,7 +96,7 @@ HTMLWidgets.widget({
         head.position.z = 1350;
         scene.add(head);
         
-        var actions = new Actions(scene, changeWorld);
+        var actions = new Actions(scene, changeWorld, wireframe);
         proxy.onPositionChanged(changeWorld);
 
         var features = [{
@@ -197,7 +203,7 @@ HTMLWidgets.widget({
     return {
       renderValue: function(x) {
         proxy = new ProxyMatrix(false);
-        grid = new Grid3D(proxy, width, height);
+        grid = new Grid3D(proxy, width, height, x.wireframe);
         
         if (x.data) {
           for (row = 0; row < x.data.length; row++) {
