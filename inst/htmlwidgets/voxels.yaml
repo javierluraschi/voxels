@@ -27,6 +27,11 @@ dependencies:
     src: htmlwidgets/lib/voxels
     stylesheet:
       - touchmenu.css
+  - name: convert.js
+    version: 1.0.0
+    src: htmlwidgets/lib/voxels
+    script:
+      - convert.js
   - name: touchmenu.js
     version: 1.0.0
     src: htmlwidgets/lib/voxels

@@ -25,6 +25,7 @@
   cursor: default;
   font-size: 20px;
   opacity: 0.4;
+  z-index: 100;
 }
 
 .touch-menu-entry.touch-menu-entry-active {
