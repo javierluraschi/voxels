@@ -6,6 +6,7 @@
 #' @param width The width of the 'htmlwidget'.
 #' @param height The height of the 'htmlwidget'.
 #' @param offset An array with three integers describing the offset.
+#' @param wireframe Render as wireframe?
 #' 
 #' @import htmlwidgets
 #' @export
@@ -13,12 +14,14 @@ voxels <- function(data = NULL,
                    width = NULL,
                    height = NULL,
                    elementId = NULL,
-                   offset = c(0, 0, 0)) {
+                   offset = c(0, 0, 0),
+                   wireframe = FALSE) {
 
   # forward options using x
   x = list(
     data = data,
-    offset = offset
+    offset = offset,
+    wireframe = wireframe
   )
 
   # create widget

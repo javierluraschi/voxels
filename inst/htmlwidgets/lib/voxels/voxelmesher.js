@@ -1,7 +1,7 @@
 function VoxelMesher(scene) {
   var self = this;
   var store = new VoxelStore();
-
+  
   self.wireframe = false;
 
   var pointToVoxel = {};
@@ -32,7 +32,7 @@ function VoxelMesher(scene) {
       particle = new THREE.Mesh();
 
       var geo = new THREE.WireframeGeometry(geometry); // or WireframeGeometry
-      var mat = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 });
+      var mat = new THREE.LineBasicMaterial({ color: 0x0000ff, linewidth: 2 });
       var wireframe = new THREE.LineSegments(geo, mat);
 
       particle.add(wireframe);
@@ -63,11 +63,12 @@ function VoxelMesher(scene) {
     particle.position.z = (start[2] + Math.abs(end[2] - start[2]) / 2) * 100 + 50;
 
     scene.add(particle);
+    self.totalVoxels += 1;
 
     for (var idx in points) {
       pointToVoxel[points[idx].join("|")] = particle;
     }
-  }
+  };
 
   self.clear = function() {
     var idx = 0;
