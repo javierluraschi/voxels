@@ -40,9 +40,9 @@ function VoxelMesher(scene) {
     else {
       var rgb = hexToRgb(color);
       var mod = {
-        r: Math.min(Math.round(rgb.r * (Math.random() * 0.20 + 0.90)), 255),
-        g: Math.min(Math.round(rgb.g * (Math.random() * 0.20 + 0.90)), 255),
-        b: Math.min(Math.round(rgb.b * (Math.random() * 0.20 + 0.90)), 255)
+        r: Math.min(Math.round(rgb.r * (Math.random() * 0.02 + 0.99)), 255),
+        g: Math.min(Math.round(rgb.g * (Math.random() * 0.02 + 0.99)), 255),
+        b: Math.min(Math.round(rgb.b * (Math.random() * 0.02 + 0.99)), 255)
       };
       color = rgbToHex(mod);
 

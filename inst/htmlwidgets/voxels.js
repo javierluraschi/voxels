@@ -19,6 +19,8 @@ HTMLWidgets.widget({
       this.addBlock = function(point, color) {
         instance.restoreBlock(point, color);
         proxy.setMaterial(point, color, 1.0);
+        
+        scene.changed = true;
       };
 
       this.removeBlock = function(intersects) {
@@ -30,8 +32,10 @@ HTMLWidgets.widget({
           Math.floor((intersects.point.z - intersects.face.normal.z) / 100),
         ];
 
-        // instance.restoreBlock(point, null);
+        instance.restoreBlock(point, null);
         proxy.setMaterial(point, null, 1.0);
+        
+        scene.changed = true;
       };
 
       this.changeWorld = function(index) {
