@@ -1,4 +1,4 @@
-function BasicLights(renderer, scene, camera, objects, head, actions) {
+function BasicLights(renderer, scene, camera, objects, head, actions, root) {
   var init = function() {
     var light = new THREE.PointLight(0xFFFFFF, 0.50);
     light.position.set(0, 100000, 0);

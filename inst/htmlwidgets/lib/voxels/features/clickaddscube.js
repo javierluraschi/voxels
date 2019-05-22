@@ -1,4 +1,4 @@
-function ClickAddsCube(renderer, scene, camera, head, env, actions) {
+function ClickAddsCube(renderer, scene, camera, head, env, actions, root) {
   var init = function() {
     env.menu.push({
       label: "L",

@@ -1,4 +1,4 @@
-function WorldsMenu(renderer, scene, camera, head, env, actions) {
+function WorldsMenu(renderer, scene, camera, head, env, actions, root) {
 
   var rootX = 60;
   var rootY = 60;
@@ -39,6 +39,7 @@ function WorldsMenu(renderer, scene, camera, head, env, actions) {
     }
 
     var menu = new TouchMenu(
+      root,
       entries
     );
   }

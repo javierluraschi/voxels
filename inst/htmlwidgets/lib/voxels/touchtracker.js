@@ -6,8 +6,8 @@ function TouchTracker(root, touchStart, touchMove, touchEnd) {
 
   var mouseFromEvent = function(event) {
     return {
-      x: (event.clientX / root.clientWidth) * 2 - 1,
-      y: - (event.clientY / root.clientHeight) * 2 + 1,
+      x: ((event.clientX - root.offsetLeft) / root.clientWidth) * 2 - 1,
+      y: - ((event.clientY - root.offsetTop) / root.clientHeight) * 2 + 1,
       clientX: event.clientX,
       clientY: event.clientY
     };

@@ -1,4 +1,4 @@
-function DownloadSTL(renderer, scene, camera, head, env, actions) {
+function DownloadSTL(renderer, scene, camera, head, env, actions, root) {
   var download = function() {
     var exporter = new THREE.STLExporter();
 

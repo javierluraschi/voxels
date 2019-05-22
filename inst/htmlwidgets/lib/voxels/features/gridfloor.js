@@ -1,4 +1,4 @@
-function GridFloor(renderer, scene, camera, head, env, actions) {
+function GridFloor(renderer, scene, camera, head, env, actions, root) {
   var init = function() {
     var gridHelper = new THREE.GridHelper(100000, 1000, 0xF0F0F0, 0xF0F0F0);
     gridHelper.position.y = 1.5;

@@ -1,4 +1,4 @@
-function CommandsMenu(renderer, scene, camera, head, env, actions) {
+function CommandsMenu(renderer, scene, camera, head, env, actions, root) {
 
   var rootX = window.innerWidth - 110;
   var rootY = 60;
@@ -12,7 +12,7 @@ function CommandsMenu(renderer, scene, camera, head, env, actions) {
       else if (level == 1)
         newPos = [entry.position[0] - 55, entry.position[1] - 30 + 55 * count];
       else
-        newPos = [entry.position[0] - 55 * count, entry.position[1]]
+        newPos = [entry.position[0] - 55 * count, entry.position[1]];
 
       var newEntry = {
         background: key,
@@ -98,6 +98,7 @@ function CommandsMenu(renderer, scene, camera, head, env, actions) {
     addMenuEntries();
 
     var menu = new TouchMenu(
+      root,
       entries
     );
   }

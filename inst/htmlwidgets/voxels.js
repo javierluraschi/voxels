@@ -148,7 +148,7 @@ HTMLWidgets.widget({
 
         for (var idx in features) {
           var feature = features[idx];
-          if (feature.enabled) new feature.constructor(renderer, scene, camera, head, env, actions);
+          if (feature.enabled) new feature.constructor(renderer, scene, camera, head, env, actions, el);
         }
 
         setTimeout(function() {

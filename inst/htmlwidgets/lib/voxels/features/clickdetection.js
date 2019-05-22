@@ -1,4 +1,4 @@
-function ClickDetection(renderer, scene, camera, head, env, actions) {
+function ClickDetection(renderer, scene, camera, head, env, actions, root) {
   var raycaster = new THREE.Raycaster();
 
   var touchTracker = new TouchTracker(renderer.domElement,

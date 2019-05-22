@@ -1,4 +1,4 @@
-function HeightControls(renderer, scene, camera, head, env, actions) {
+function HeightControls(renderer, scene, camera, head, env, actions, root) {
 
   var rootX = window.innerWidth - 110;
   var rootY = window.innerHeight - 110;
@@ -6,6 +6,7 @@ function HeightControls(renderer, scene, camera, head, env, actions) {
   var moveTo = null;
 
   var menu = new TouchMenu(
+    root,
     [
       {
         label: "◆",

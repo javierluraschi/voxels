@@ -1,4 +1,4 @@
-function LongClickDeletes(renderer, scene, camera, head, env, actions) {
+function LongClickDeletes(renderer, scene, camera, head, env, actions, root) {
   var raycaster = new THREE.Raycaster();
 
   var touchTracker = new TouchTracker(renderer.domElement,

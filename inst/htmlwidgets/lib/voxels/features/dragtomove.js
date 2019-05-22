@@ -1,4 +1,4 @@
-function DragToMove(renderer, scene, camera, head, env, actions) {
+function DragToMove(renderer, scene, camera, head, env, actions, root) {
   var touchTracker = new TouchTracker(renderer.domElement,
     function(start, last, end, time, data) {
     },

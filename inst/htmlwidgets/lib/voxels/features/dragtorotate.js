@@ -1,4 +1,4 @@
-function DragToRotate(renderer, scene, camera, head, env, actions) {
+function DragToRotate(renderer, scene, camera, head, env, actions, root) {
   var pitch;
 
   var touchTracker = new TouchTracker(renderer.domElement,

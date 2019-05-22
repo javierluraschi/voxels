@@ -1,4 +1,4 @@
-function TouchMenu(entries) {
+function TouchMenu(rootEl, entries) {
   var host;
   var instances = [];
   var elementCount = 0;
