@@ -1,7 +1,7 @@
 function MoveControls(renderer, scene, camera, head, env, actions, root) {
 
-  var rootX = 60;
-  var rootY = window.innerHeight - 110;
+  var rootX = Convert.offset(root).left + 60;
+  var rootY = Convert.offset(root).top + Convert.offset(root).height - 110;
 
   var moveTo = null;
 
@@ -9,11 +9,13 @@ function MoveControls(renderer, scene, camera, head, env, actions, root) {
     root,
     [
       {
-        label: "◆",
+        label: "",
+        html: FontAwesome.move,
         position: [rootX, rootY],
         children: [
           {
-            label: "⥥",
+            label: "",
+            html: FontAwesome.down,
             position: [rootX, rootY + 55],
             active: function() {
               moveTo = "B";
@@ -23,7 +25,8 @@ function MoveControls(renderer, scene, camera, head, env, actions, root) {
             }
           },
           {
-            label: "⥢",
+            label: "",
+            html: FontAwesome.left,
             position: [rootX - 55, rootY],
             active: function() {
               moveTo = "L";
@@ -33,7 +36,8 @@ function MoveControls(renderer, scene, camera, head, env, actions, root) {
             }
           },
           {
-            label: "⥣",
+            label: "",
+            html: FontAwesome.up,
             position: [rootX, rootY - 55],
             active: function() {
               moveTo = "F";
@@ -43,7 +47,8 @@ function MoveControls(renderer, scene, camera, head, env, actions, root) {
             }
           },
           {
-            label: "⟰",
+            label: "",
+            html: FontAwesome.upup,
             position: [rootX, rootY - 110],
             active: function() {
               moveTo = "FF";
@@ -53,7 +58,8 @@ function MoveControls(renderer, scene, camera, head, env, actions, root) {
             }
           },
           {
-            label: "⥤",
+            label: "",
+            html: FontAwesome.right,
             position: [rootX + 55, rootY],
             active: function() {
               moveTo = "R";

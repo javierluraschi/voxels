@@ -20,7 +20,12 @@ dependencies:
     src: htmlwidgets/lib
     script:
       - stlexporter.js
-
+  - name: awesomefont.js
+    version: 1.0.0
+    src: htmlwidgets/lib
+    script:
+      - fontawesome.js
+      
   # Core Voxel Engine
   - name: touchmenu.css
     version: 1.0.0

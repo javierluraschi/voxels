@@ -5,9 +5,12 @@ function TouchTracker(root, touchStart, touchMove, touchEnd) {
   var dataMap = {};
 
   var mouseFromEvent = function(event) {
+    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
     return {
-      x: ((event.clientX - Convert.offset(root).left) / Convert.offset(root).width) * 2 - 1,
-      y: - ((event.clientY - Convert.offset(root).top) / Convert.offset(root).height) * 2 + 1,
+      x: ((event.clientX - (Convert.offset(root).left - scrollLeft)) / Convert.offset(root).width) * 2 - 1,
+      y: - ((event.clientY - (Convert.offset(root).top - scrollTop)) / Convert.offset(root).height) * 2 + 1,
       clientX: event.clientX,
       clientY: event.clientY
     };

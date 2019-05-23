@@ -1,7 +1,7 @@
 function HeightControls(renderer, scene, camera, head, env, actions, root) {
 
-  var rootX = window.innerWidth - 110;
-  var rootY = window.innerHeight - 110;
+  var rootX = Convert.offset(root).left + Convert.offset(root).width - 110;
+  var rootY = Convert.offset(root).top + Convert.offset(root).height - 110;
 
   var moveTo = null;
 
@@ -9,11 +9,13 @@ function HeightControls(renderer, scene, camera, head, env, actions, root) {
     root,
     [
       {
-        label: "◆",
+        label: "",
+        html: FontAwesome.updown,
         position: [rootX, rootY],
         children: [
           {
-            label: "▼",
+            label: "",
+            html: FontAwesome.down,
             position: [rootX, rootY + 55],
             active: function() {
               moveTo = "D";
@@ -23,7 +25,8 @@ function HeightControls(renderer, scene, camera, head, env, actions, root) {
             }
           },
           {
-            label: "▲",
+            label: "",
+            html: FontAwesome.up,
             position: [rootX, rootY - 55],
             active: function() {
               moveTo = "U";

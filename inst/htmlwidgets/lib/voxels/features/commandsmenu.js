@@ -1,7 +1,7 @@
 function CommandsMenu(renderer, scene, camera, head, env, actions, root) {
 
-  var rootX = window.innerWidth - 110;
-  var rootY = 60;
+  var rootX = Convert.offset(root).left + Convert.offset(root).width - 110;
+  var rootY = Convert.offset(root).top + 60;
 
   var addColorEntries = function(entry, palette, level) {
     var count = 0;
@@ -34,12 +34,14 @@ function CommandsMenu(renderer, scene, camera, head, env, actions, root) {
 
   var entries = [
     {
-      label: "◆",
+      label: "",
+      html: FontAwesome.tools,
       background: "#ffc2cd",
       position: [rootX, rootY],
       children: [
         {
-          label: "C",
+          label: "",
+          html: FontAwesome.palette,
           background: "#ffc2cd",
           position: [rootX, rootY + 55],
           children: []

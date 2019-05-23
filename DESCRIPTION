@@ -1,9 +1,9 @@
 Package: voxels
 Type: Package
-Title: Realtime and Interactive Voxels
+Title: Interactive Voxels Engine
 Version: 0.1.0
 Authors@R: c(
-    person("Javier", "Luraschi", email = "javier@rstudio.com", role = c("aut", "cre"))
+    person("Javier", "Luraschi", email = "jluraschi@gmail.com", role = c("aut", "cre"))
     )
 Maintainer: Javier Luraschi <javier@rstudio.com>
 Description: Provides tools to show and draw image voxels using 'HTML' widgets 

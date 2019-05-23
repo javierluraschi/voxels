@@ -35,13 +35,16 @@ function TouchMenu(rootEl, entries) {
 
   var addEntry = function(entry) {
     if (entry.expanded) return;
+    
+    var className = entry.className ? " " + entry.className : "";
 
     var divEntry = createElement("div");
-    divEntry.setAttribute("class", "touch-menu-entry");
+    divEntry.setAttribute("class", "touch-menu-entry" + className);
     divEntry.style.top = entry.position[1] + "px";
     divEntry.style.left = entry.position[0] + "px";
     if (entry.background) divEntry.style.background = entry.background;
     if (entry.label) divEntry.innerText = entry.label;
+    if (entry.html) divEntry.innerHTML = entry.html;
 
     entry.element = divEntry;
     entry.expanded = true;
@@ -61,19 +64,25 @@ function TouchMenu(rootEl, entries) {
   };
 
   var mouseInsideEntry = function(e, entry) {
-    var element = entry.element;
-    return element.offsetLeft <= e.clientX &&
-           element.offsetLeft + element.offsetWidth >= e.clientX &&
-           element.offsetTop <= e.clientY &&
-           element.offsetTop + element.offsetHeight >= e.clientY;
+    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var posEntry = Convert.offset(entry.element);
+    
+    return posEntry.left <= e.clientX + scrollLeft &&
+           posEntry.left + posEntry.width >= e.clientX + scrollLeft &&
+           posEntry.top <= e.clientY + scrollTop &&
+           posEntry.top + posEntry.height >= e.clientY + scrollTop;
   };
 
   var distanceToEntry = function(e, entry) {
-    var element = entry.element;
-    var entryX = element.offsetLeft + element.offsetWidth / 2;
-    var entryY = element.offsetTop + element.offsetHeight / 2;
+    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var posEntry = Convert.offset(entry.element);
+    
+    var entryX = posEntry.left + posEntry.width / 2;
+    var entryY = posEntry.top + posEntry.height / 2;
 
-    return Math.pow(entryX - e.clientX, 2) + Math.pow(entryY - e.clientY, 2);
+    return Math.pow(entryX - (e.clientX + scrollLeft), 2) + Math.pow(entryY - (e.clientY + scrollTop), 2);
   };
 
   var onDocumentMouseDown = function(e, data) {
@@ -148,8 +157,9 @@ function TouchMenu(rootEl, entries) {
 
     for (var idx = 0; idx < instances.length; idx++) {
       var entry = instances[idx];
+      var className = entry.className ? " " + entry.className : "";
       if (!overRoot && closestElement == entry.element) {
-        entry.element.setAttribute("class", "touch-menu-entry touch-menu-entry-active");
+        entry.element.setAttribute("class", "touch-menu-entry touch-menu-entry-active" + className);
         if (entry.active) entry.active();
         addEntries(entry.children);
         activeEntries = [entry];
@@ -157,7 +167,7 @@ function TouchMenu(rootEl, entries) {
       }
       else {
         if (entry.inactive) entry.inactive();
-        if (entry.element) entry.element.setAttribute("class", "touch-menu-entry");
+        if (entry.element) entry.element.setAttribute("class", "touch-menu-entry" + className);
       }
     }
 
