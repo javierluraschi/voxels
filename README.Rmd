@@ -1,12 +1,10 @@
 ---
-title: "Realtime and Interactive Voxels"
-output:
-  github_document:
-    fig_width: 9
-    fig_height: 5
+title: "Interactive Voxels Rendering"
 ---
 
-**Early Stage** voxel rendering engine for R. Currently you can manualy create and nagivate through voxels worlds using R. Soon to come, suppoort to create and retrieve voxels from R.
+[![Build Status](https://travis-ci.org/javierluraschi/pins.svg?branch=master)](https://travis-ci.org/javierluraschi/pins) [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/pins)](https://cran.r-project.org/package=pins) ![](https://img.shields.io/badge/lifecycle-experimental-red.svg)
+
+The [voxels](https://github.com/javierluraschi/voxels) is under-development R package that provides interacte voxels rendering.
 
 ## Installation
 
@@ -21,17 +19,14 @@ remotes::install_github("javierluraschi/voxels")
 
 You can easily launch a voxel explorer and editor,
 
-```{r eval=FALSE}
-library(voxels)
-voxels()
+```{r fig.height=7, fig.width=9}
+voxels::voxels()
 ```
 
-![](tools/README/voxels-demo.gif)
+pass your own 3D matrix to render voxels from it,
 
-Notice that after closing the explorer, `voxels()` returns a matrix of voxels which you can pass in `voxels()` to render back those voxels, or alternatevely, you can pass your own 3D matrix to render voxels from it:
-
-```{r eval=FALSE}
-voxels(array(c(
+```{r fig.width=9}
+voxels::voxels(array(c(
     0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1,
     0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1,
     0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1,
@@ -45,4 +40,14 @@ voxels(array(c(
 ), dim=c(19, 5, 2)), offset = c(-10, 0, 0))
 ```
 
-![](tools/README/voxels-hello.png)
+or use many interesting R packages to perform interactive visualizations. For instance, we can add some perlin noise to simulate terrain generation:
+
+```{r fig.width=9}
+library(magrittr)
+set.seed(123245)
+
+ceiling(ambient::noise_perlin(c(20, 6, 20)) * 10) %>%
+  voxels::voxels(offset = c(-20, 0, -20))
+```
+
+Please note that this package is still under-development!

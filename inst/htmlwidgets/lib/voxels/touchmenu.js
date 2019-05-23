@@ -210,9 +210,9 @@ function TouchMenu(rootEl, entries) {
 
     addEntries(entries);
 
-    document.body.appendChild(host);
+    rootEl.appendChild(host);
 
-    touchTracker = new TouchTracker(window.document.body,
+    touchTracker = new TouchTracker(rootEl,
       function(start, last, end, time, data) {
         return onDocumentMouseDown(end, data);
       },
